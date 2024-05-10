@@ -11,9 +11,16 @@ close all;
 % 1. Defining variables
 %----------------------------------------------------------------
 
-var rr c n u w y k i lb mc pi r q x v_H v_P e mu g tau gy_obs gc_obs gi_obs pi_obs r_obs u_obs varrho;
-var e_a e_g e_c e_m e_i e_r e_t;
+var rr c n u w y k i lb mc pi r q x v_H v_P e mu g tau varrho
+gy_obs ${\Delta log(Y_{t})}$ (long_name='Output growth'), 
+gc_obs ${\Delta log(C_{t})}$ (long_name='Consumption growth'), 
+gi_obs ${\Delta log(I_{t})}$ (long_name='Investment growth'), 
+pi_obs ${\pi_{t}}$ (long_name='Inflation'),
+r_obs ${R_{t}}$ (long_name='Interest rate'),
+u_obs ${U_{t}}$ (long_name='Unemployment rate')
+;
 
+var e_a e_g e_c e_m e_i e_r e_t;
 
 varexo eta_a eta_g eta_c eta_m eta_i eta_r eta_t;
  
@@ -184,18 +191,65 @@ steady_state_model;
 	gy_obs = 0; gc_obs = 0; gi_obs = 0; pi_obs = 0; r_obs = 0; u_obs = 0; 
 end;
 
+% check residuals
+resid;
+
+varobs gy_obs pi_obs r_obs gc_obs gi_obs u_obs;
+
+estimated_params;
+//	PARAM NAME,		INITVAL,	LB,		UB,		PRIOR_SHAPE,		PRIOR_P1,		PRIOR_P2,		PRIOR_P3,		PRIOR_P4,		JSCALE
+	stderr eta_g,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
+	rho_g,				.92,    	,		,		beta_pdf,			.5,				0.2;
+	stderr eta_a,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
+	rho_a,				.92,    	,		,		beta_pdf,			.5,				0.2;
+	stderr eta_r,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
+	rho_r,				.5,    		,		,		beta_pdf,			.5,				0.2;
+	stderr eta_c,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
+	rho_c,				.96,    		,		,		beta_pdf,			.5,				0.2;
+	stderr eta_i,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
+	rho_i,				.9,    		,		,		beta_pdf,			.5,				0.2;
+	
+
+	sigmaC,				2,    		,		,		normal_pdf,			1.5,				.35;
+	kappa,				6,    		,		,		gamma_pdf,			4,				1.5;
+	xi,					106,    	0,		,		gamma_pdf,			100,				15;
+	rho,				.45,    	,		,		beta_pdf,			.75,				0.1;
+	phi_pi,				1.8,    	,		,		gamma_pdf,			1.5,				0.25;
+	phi_y,				0.05,    	,		,		gamma_pdf,			0.12,				0.05;
+%	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
+
+end;
+
+
+%%% estimation of the model
+estimation(datafile=myobs,	% your datafile, must be in your current folder
+first_obs=1,				% First data of the sample
+mode_compute=4,				% optimization algo, keep it to 4
+mh_replic=5000,				% number of sample in Metropolis-Hastings
+mh_jscale=0.5,				% adjust this to have an acceptance rate between 0.2 and 0.3
+prefilter=1,				% remove the mean in the data
+lik_init=2,					% Don't touch this,
+mh_nblocks=1,				% number of mcmc chains
+forecast=8					% forecasts horizon
+) gy_obs pi_obs r_obs gc_obs gi_obs u_obs;
+
+
+
+
 
 %%% SIMULATIONS
-shocks;
-	var eta_a;	stderr 0.01;
-	var eta_g;	stderr 0.01;
-	var eta_c;	stderr 0.01;
-	var eta_m;	stderr 0.01;
-	var eta_i;	stderr 0.01;
-	var eta_r;	stderr 0.01;
-end;
-	
-resid(1);
-check;
 
-stoch_simul(irf=30,order=1) y c i pi r u x ;
+%shocks;
+%	var eta_a;	stderr 0.01;
+%	var eta_g;	stderr 0.01;
+%	var eta_c;	stderr 0.01;
+%	var eta_m;	stderr 0.01;
+%	var eta_i;	stderr 0.01;
+%	var eta_r;	stderr 0.01;
+%end;
+	
+%resid(1);
+%check;
+
+%stoch_simul(irf=30,order=1) y c i pi r u x ;
+
