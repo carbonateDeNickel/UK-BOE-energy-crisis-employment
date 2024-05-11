@@ -65,7 +65,7 @@ rho_c	= 0.95;
 rho_m  	= 0.95;
 rho_i	= 0.95;
 rho_r	= 0.40;
-rho_t	= 0.8;
+rho_t	= 0.40;
 
 %----------------------------------------------------------------
 % 3. Model
@@ -202,30 +202,30 @@ steady_state_model;
 end;
 
 % check residuals
-disp("About to check residuals")
+% disp("About to check residuals")
 resid;
-disp("Je viens de check residuals")
+% disp("Je viens de check residuals")
 
 varobs gy_obs pi_obs r_obs gc_obs gi_obs u_obs;
 
 estimated_params;
 //	PARAM NAME,		INITVAL,	LB,		UB,		PRIOR_SHAPE,		PRIOR_P1,		PRIOR_P2,		PRIOR_P3,		PRIOR_P4,		JSCALE
 	stderr eta_g,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_g,				.92,    	,		,		beta_pdf,			.5,				0.2;
+	rho_g,				.95,    	,		,		beta_pdf,			.5,				0.2;
 	stderr eta_a,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_a,				.92,    	,		,		beta_pdf,			.5,				0.2;
+	rho_a,				.95,    	,		,		beta_pdf,			.5,				0.2;
 	stderr eta_r,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_r,				.5,    		,		,		beta_pdf,			.5,				0.2;
+	rho_r,				.4,    		,		,		beta_pdf,			.5,				0.2;
 	stderr eta_c,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_c,				.96,        ,		,		beta_pdf,			.5,				0.2;
+	rho_c,				.95,        ,		,		beta_pdf,			.5,				0.2;
 	stderr eta_i,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_i,				.9,    		,		,		beta_pdf,			.5,				0.2;
+	rho_i,				.95,    	,		,		beta_pdf,			.5,				0.2;
 	stderr eta_t,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_t,				.8,     	,		,		beta_pdf,			.5,				0.2;
+	rho_t,				.4,     	,		,		beta_pdf,			.5,				0.2;
 
-	sigmaC,				2,    		,		,		normal_pdf,			1.5,				.35;
-	kappa,				6,    		,		,		gamma_pdf,			4,				1.5;
-	xi,					106,    	0,		,		gamma_pdf,			100,				15;
+	sigmaC,				1,    		0,		,		normal_pdf,			1,				.35;
+	kappa,				4,    		,		,		gamma_pdf,			4,				1.5;
+	xi,					80,     	,		,		gamma_pdf,			100,				15;
 	rho,				.45,    	,		,		beta_pdf,			.75,				0.1;
 	phi_pi,				1.8,    	,		,		gamma_pdf,			1.5,				0.25;
 	phi_y,				0.05,    	,		,		gamma_pdf,			0.12,				0.05;
