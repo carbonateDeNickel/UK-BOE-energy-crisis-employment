@@ -36,21 +36,21 @@ Data to use:
 ## Calibrations à rechercher pour UK
 - labor
     - delta_N : separation rate
-    - eta : negotiation share
-    - phi : shape hiring cost function
+    - eta : negotiation share --> à oublier : on postule 0.5
+    - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe
 
 - gov
     - gy
 
 - Monetary policy
-    - rho
+    - rho --> à oublier éventuellement
     - phi_y
     - phi_pi
 
 - economy
     - piss --> 0.005 correspondant aux 2% annuels cible de la BOE
-    - sig
-    - y0
+    - sig --> la même que USA ??
+    - y0 --> à comprendre ; SS-y à trouver pour UK
 
 
 ## Revoir certaines équations du modèle
