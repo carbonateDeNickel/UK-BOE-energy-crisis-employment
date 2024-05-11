@@ -192,7 +192,9 @@ steady_state_model;
 end;
 
 % check residuals
+disp("About to check residuals")
 resid;
+disp("Je viens de check residuals")
 
 varobs gy_obs pi_obs r_obs gc_obs gi_obs u_obs;
 
