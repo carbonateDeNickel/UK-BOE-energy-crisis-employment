@@ -48,7 +48,7 @@ Data to use:
     - phi_pi
 
 - economy
-    - piss
+    - piss --> 0.005 correspondant aux 2% annuels cible de la BOE
     - sig
     - y0
 
