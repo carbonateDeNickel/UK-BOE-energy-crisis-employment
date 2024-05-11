@@ -11,7 +11,7 @@ close all;
 % 1. Defining variables
 %----------------------------------------------------------------
 
-var rr c n u w y k i lb mc pi r q x v_H v_P e mu g tau varrho
+var rr c n u w b y k i lb mc pi r q x v_H v_P e mu g tau varrho
 gy_obs ${\Delta log(Y_{t})}$ (long_name='Output growth'), 
 gc_obs ${\Delta log(C_{t})}$ (long_name='Consumption growth'), 
 gi_obs ${\Delta log(I_{t})}$ (long_name='Investment growth'), 
@@ -24,7 +24,7 @@ var e_a e_g e_c e_m e_i e_r e_t;
 
 varexo eta_a eta_g eta_c eta_m eta_i eta_r eta_t;
  
-parameters beta delta alpha sigmaC delta_N chi phi gy b  Gam eta gamma epsilon kappa rho phi_y phi_pi xi
+parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kappa rho phi_y phi_pi xi
 			tau0 y0 sig theta1 theta2 varphi A xi piss  rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
             
             
