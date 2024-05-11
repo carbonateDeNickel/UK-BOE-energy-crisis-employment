@@ -115,6 +115,9 @@ model;
 	rr = r/pi(+1);
 	[name='Total emissions']
 	e = sig*(1-mu)*y^(1-varphi);
+
+    [name='Unemployment benefits']
+    b = gamma*w;
 	
 	%%% Policy instruments
 	[name='Monetary Policy rule']
