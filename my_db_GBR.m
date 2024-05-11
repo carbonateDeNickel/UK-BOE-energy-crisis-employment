@@ -3,13 +3,14 @@
 
 % select non NaN ids
 idx 			= find(~isnan(sum(output_table(:,2:end),2)));
+%% Filtrage des NaN
 output_table 	= output_table(idx,:);
 T				= T(idx);
 
 
 % we normalize to one prices and in population for 2015
 id2015 = find(T==2015);
-def = output_table(:,5)/output_table(id2015,5);
+def = output_table(:,5)/output_table(id2015,5); % def for deflator
 
 
 %% taking in real growth rates per capita
@@ -24,11 +25,16 @@ u_obs = output_table(2:end,6);
 pi_obs  = diff(log(def));
 % quarterly interest rate
 r_obs	= output_table(2:end,7)/400;
+    % division par 100 pour passer des pourcents à l'unité
+    % division par 4 pour passer en trimestriel (i.e. le trimestre devient
+    %   la période de référence pour ce taux)
 
 T = T(2:end);
 
 % save into myobs.mat
 save myobs gy_obs gc_obs gi_obs u_obs T pi_obs r_obs;
+
+%% Traces
 
 figure;
 subplot(2,2,1)
