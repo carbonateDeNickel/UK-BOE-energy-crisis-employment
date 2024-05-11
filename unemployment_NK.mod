@@ -24,7 +24,7 @@ var e_a e_g e_c e_m e_i e_r e_t;
 
 varexo eta_a eta_g eta_c eta_m eta_i eta_r eta_t;
  
-parameters beta delta alpha sigmaC sigmaL delta_N chi phi gy b  Gam eta gamma epsilon kappa rho phi_y phi_pi xi
+parameters beta delta alpha sigmaC delta_N chi phi gy b  Gam eta gamma epsilon kappa rho phi_y phi_pi xi
 			tau0 y0 sig theta1 theta2 varphi A xi piss  rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
             
             
@@ -39,7 +39,7 @@ delta 	= 0.025;	% Depreciation rate
 alpha 	= 0.30;		% Capital share
 gy 		= 0.2;   	% Public spending in GDP
 sigmaC 	= 1;		% Consumption risk aversion
-sigmaL 	= 2; 		% Elasticity of labor
+% sigmaL 	= 2; 		% Elasticity of labor
 epsilon = 10;		% Elasticity between goods
 rho 	= .8;		% Monetary policy smoothing
 phi_y	= 0.1;		% Monetary policy reaction to output
