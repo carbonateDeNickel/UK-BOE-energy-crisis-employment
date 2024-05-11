@@ -25,7 +25,7 @@ var e_a e_g e_c e_m e_i e_r e_t;
 varexo eta_a eta_g eta_c eta_m eta_i eta_r eta_t;
  
 parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kappa rho phi_y phi_pi xi
-			tau0 y0 sig theta1 theta2 varphi A xi piss  rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
+			tau0 y0 sig theta1 theta2 varphi A piss rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
             
             
 %----------------------------------------------------------------
@@ -96,6 +96,7 @@ model;
 	v_P = (1-alpha)*varrho*y/n - w + beta*lb(+1)/lb*(1-delta_N)*v_P(+1);
 	[name='FOC x']
 	Gam*x^phi = v_P;
+    % 2e équation FOC p.4
 	[name='NKPC']
 	(1-epsilon) + epsilon*mc - xi*pi*(pi-steady_state(pi)) + xi*beta*lb(+1)/lb*y(+1)/y*pi(+1)*(pi(+1)-steady_state(pi));
 	[name='wage']

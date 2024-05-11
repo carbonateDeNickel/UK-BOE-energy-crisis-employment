@@ -28,3 +28,30 @@ Data to use:
         - ONS/MM23/DK9T.M : CPI INDEX: Energy (G) 2015=100 – Monthly
     - non-energy
         - ONS/MM23/DKC5.M : CPI INDEX: Excluding energy (SP) 2015=100 – Monthly
+
+
+
+
+
+## Calibrations à rechercher pour UK
+- labor
+    - delta_N : separation rate
+    - eta : negotiation share
+    - phi : shape hiring cost function
+
+- gov
+    - gy
+
+- Monetary policy
+    - rho
+    - phi_y
+    - phi_pi
+
+- economy
+    - piss
+    - sig
+    - y0
+
+
+## Revoir certaines équations du modèle
+- supprimer les normalisations par le steady state dans les équations définissant les variables observées
