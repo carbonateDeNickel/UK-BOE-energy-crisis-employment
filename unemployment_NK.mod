@@ -139,13 +139,19 @@ model;
 	[name='measurement unemployment']
 	u_obs  = u  - steady_state(u);
 	
-	[name='shocks']
+	[name='productivity shock']
 	log(e_a) = rho_a*log(e_a(-1))+eta_a;
+    [name='government spending shock']
 	log(e_g) = rho_g*log(e_g(-1))+eta_g;
+    [name='consumption preferences shock']
 	log(e_c) = rho_c*log(e_c(-1))+eta_c;
+    [name='investment efficiency shock']
 	log(e_i) = rho_i*log(e_i(-1))+eta_i;
+    [name='worker wage bargaining power shock']
     log(e_m) = rho_m*log(e_m(-1))+eta_m;
-    log(e_r) = rho_r*log(e_r(-1))+eta_r;  
+    [name='monetary policy shock']
+    log(e_r) = rho_r*log(e_r(-1))+eta_r;
+    [name='carbon tax shock']
     log(e_t) = rho_t*log(e_t(-1))+eta_t;  
 end;
 
