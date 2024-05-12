@@ -232,7 +232,7 @@ estimated_params;
 	phi_y,				0.05,    	,		,		gamma_pdf,			0.12,				0.05;
 %	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
     chi,                1,          0,      0,      gamma_pdf,		  	10,              1;
-	eta,				0.104,		,		,		beta_pdf,			1.2,			1.8; % permet de fixer le mode à 0.2, par la formule (P1-1) / (P1+P2-2)
+	eta,				0.104,		,		,		beta_pdf,			0.2,			0.2;
 
 end;
 

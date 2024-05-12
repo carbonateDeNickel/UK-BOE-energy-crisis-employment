@@ -44,7 +44,8 @@ Data to use:
         - 0.104 d'après jager2020wages (cf biblio.bib)
         - la littérature semble tout de même relativement dispersée à ce sujet, et les résultats varient suivant l'approche (worker-level, firm-level, etc.) ; on pourrait peut-être envisager d'estimer ce paramètre, au-delà de la simple calibration ?
         - une loi Beta est adaptée, car $\eta$ représente une part (part du surplus attribuée aux travailleurs)
-        - on prend pour paramètres 1.2 et 1.8, de sorte à obtenir un mode à 0.2 par la formule (P1-1) / (P1+P2-2)
+        - %% on prend pour paramètres 1.2 et 1.8, de sorte à obtenir un mode à 0.2 par la formule (P1-1) / (P1+P2-2)
+        - apparemment, Dynare ne part pas des paramètres usuels de cette loi, mais plutôt du couple moyenne / écart-type : on met 0.2, 0.2
     - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe propre à cette forme fonctionnelle
 
 - gov
