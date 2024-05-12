@@ -33,13 +33,19 @@ Data to use:
 
 
 
-## Calibrations à rechercher pour UK
+## Calibrations à rechercher pour UK, et notes sur certains choix de calibration et/ou de priors
+- utilité
+    - chi ($\chi$ désutilité du travail) : conformément aux recommandations de la slide 28 du cours 4, pour un paramètre de fonction d'utilité positif, on adopte une distribution gamma. Quant à la valeur moyenne $\mu$, on constate dans l'estimation du steady state que $C = 14.5$ ; donc pour que le travail puisse avoir un effet du même ordre de grandeur, on prendra $\mu = 10$
+
 - labor
     - delta_N : separation rate
         - 3.6% (trimestriel) d'après kent2008job (cf biblio.bib)
     - eta : negotiation share --> à oublier : on postule 0.5
         - 0.104 d'après jager2020wages (cf biblio.bib)
-    - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe
+        - la littérature semble tout de même relativement dispersée à ce sujet, et les résultats varient suivant l'approche (worker-level, firm-level, etc.) ; on pourrait peut-être envisager d'estimer ce paramètre, au-delà de la simple calibration ?
+        - une loi Beta est adaptée, car $\eta$ représente une part (part du surplus attribuée aux travailleurs)
+        - on prend pour paramètres 1.2 et 1.8, de sorte à obtenir un mode à 0.2 par la formule (P1-1) / (P1+P2-2)
+    - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe propre à cette forme fonctionnelle
 
 - gov
     - gy
@@ -62,9 +68,3 @@ Data to use:
 ## Revoir certaines équations du modèle
 - supprimer les normalisations par le steady state dans les équations définissant les variables observées
 --> en fait ces normalisations pourraient être justifiées par le fait qu'on normalise la moyenne des séries à 0 dans l'estimation
-
-
-## Notes sur certains choix de calibration et/ou de priors
-- chi ($\chi$ désutilité du travail) : conformément aux recommandations de la slide 28 du cours 4, pour un paramètre de fonction d'utilité positif, on adopte une distribution gamma. Quant à la valeur moyenne $\mu$, on constate dans l'estimation du steady state que $C = 14.5$ ; donc pour que le travail puisse avoir un effet du même ordre de grandeur, on prendra $\mu = 10$
-
-- 
