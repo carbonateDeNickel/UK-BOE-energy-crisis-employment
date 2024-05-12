@@ -2,7 +2,7 @@
 Applied Macroeconometric Modelling -- Effects of the monetary policy lead by the Bank of England on employment in the context of the inflationary crisis of 2022
 
 
-Data to use:
+## Data to use
 
 - about labor -- we focus on Great Britain, which allows us to evade the potential issues of Northern Ireland facing a slightly different situation due to its border with the Republic of Ireland and the fact of not being part of the same island
     - ONS/LMS/LF43.M : LFS: Employment rate: Great Britain: Aged 16-64: All: %: SA – Monthly
@@ -40,21 +40,23 @@ Data to use:
 - labor
     - delta_N : separation rate
         - 3.6% (trimestriel) d'après kent2008job (cf biblio.bib)
-    - eta : negotiation share --> à oublier : on postule 0.5
+    - eta : negotiation share
+        - le toy model initial postule 0.5
         - 0.104 d'après jager2020wages (cf biblio.bib)
         - la littérature semble tout de même relativement dispersée à ce sujet, et les résultats varient suivant l'approche (worker-level, firm-level, etc.) ; on pourrait peut-être envisager d'estimer ce paramètre, au-delà de la simple calibration ?
         - une loi Beta est adaptée, car $\eta$ représente une part (part du surplus attribuée aux travailleurs)
         - %% on prend pour paramètres 1.2 et 1.8, de sorte à obtenir un mode à 0.2 par la formule (P1-1) / (P1+P2-2)
         - %% apparemment, Dynare ne part pas des paramètres usuels de cette loi, mais plutôt du couple moyenne / écart-type : on met 0.2, 0.2
         - problème : cela donnait une densité non-bornée en 0 ; on prend 0.35 et 0.2, le mode de la distribution se situe à environ 0.2
-    - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe propre à cette forme fonctionnelle
     - u0 : taux de chômage structurel UK, pour remplacer la valeur 0.075 présente dans steady_state
+        - la valeur moyenne de notre série u_obs est 5.8567 %
+        - prendre la valeur moyenne de la série est intrinsèquement cohérent avec l'équation liant u et u_obs dans le modèle, sachant que l'estimation considère u_obs diminué de sa moyenne : u_obs = u - steady_state(u)
 
 - gov
     - gy
         - GDP 2022 : £m 2,505,981 -- source : UK Economic Accounts time series, Yearly National Accounts, Gross Domestic Product at market prices: Current price: Seasonally adjusted £m, https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ybha/ukea
         - General Government Spending 2022 : £m 1,167,596 -- source : National Accounts, General government annual expenditure: ESA Table 11 ; https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicspending/datasets/esatable11annualexpenditureofgeneralgovernment
-        - Je calcule donc : gy = 1,167,596 / 2,505,981 = 46.6%
+        - On calcule donc : gy = 1,167,596 / 2,505,981 = 46.6%
     
 
 - Monetary policy
@@ -63,9 +65,22 @@ Data to use:
     - phi_pi
 
 - economy
-    - piss --> 0.005 correspondant aux 2% annuels cible de la BOE
-    - sig --> la même que USA ??
-    - y0 --> à comprendre ; SS-y à trouver pour UK
+    - piss
+        - 0.005 correspondant aux 2% annuels cible de la BOE
+    - y0
+        - le toy model utilise le PIB US 2022 (dollars actuels) : 25 Trillions (échelle courte)
+        - on prendra donc le PIB UK 2022 (livres actuelles) : 2,506.17 Billion (échelle courte)
+        - source : https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
+
+- carbon and sustainability
+    - sig
+        - 2022 UK carbon intensity : 190 tonnes CO2 / M£ de valeur ajoutée, i.e. 0.190 Gt / P£ i.e. 0.190 Gt / Trillion £
+        - source : https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/greenhousegasintensityprovisionalestimatesuk/provisionalestimates2022
+    - tau0
+        - 87.52 € / tonne CO2e en moyenne en 2021, en Net Effective Carbon Rate, qui comprend le prix ETS et les droits d'accises moins les subventions aux énergies fossiles
+        - source : https://www.oecd.org/tax/tax-policy/carbon-pricing-united-kingdom.pdf
+        - on prend un taux de change 1 EUR = 0.87 GBP tenant lieu de moyenne du taux de change entre 2021 et 2023
+        - d'où 87.52 * 0.87 = 76.14 £ / tonne CO2e
 
 
 ## Revoir certaines équations du modèle

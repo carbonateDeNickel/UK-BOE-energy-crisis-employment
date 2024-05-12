@@ -51,12 +51,13 @@ varphi	= 0.2;		% elasticity of emission to GDP
 piss	= 0.005;	% 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
 
 % value of main variables:
-tau0 	= 50 /1000;	% value of carbon tax ($/ton)
-sig		= 0.2; 		% Carbon intensity USA 0.2 Gt / Trillions USD
-y0	 	= 25;		% trillions usd PPA https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
+tau0 	= 76.14/1000;	% value of carbon tax ($/ton)
+sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value added https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/greenhousegasintensityprovisionalestimatesuk/provisionalestimates2022
+y0	 	= 2.50617;	% 2022 nominal, trillion current local currency (LCU = £) https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
 Hss		= 1/3;		% labor supply in ss
+u0		= 0.058567	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
 
 % autoregressive roots parameters
 rho_a	= 0.95;
@@ -173,7 +174,7 @@ steady_state_model;
 	mc		= (epsilon-1)/epsilon;
 	varrho 	= mc - theta1*mu^theta2 - tau*(1-varphi)*sig*(1-mu)*y^(-varphi);
 	q		= 1;
-	u 		= .075;
+	u 		= u0;
 	n 		= 1-u;
 %	k		= n*(A*(rr-(1-delta))/(alpha*varrho))^(1/(alpha-1));
 	k		=	alpha*varrho*y/(rr-(1-delta));
