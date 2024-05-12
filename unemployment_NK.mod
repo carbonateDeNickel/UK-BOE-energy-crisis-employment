@@ -31,13 +31,13 @@ parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kapp
 %----------------------------------------------------------------
 % 2. Calibration
 %----------------------------------------------------------------
-delta_N = .1/4;		% separation rate
+delta_N = 0.036;	% separation rate, based on Kent (2008) for the UK
 eta		= .5;		% negotiation share
 phi		= 0.05;		% shape hiring cost function
 beta 	= 0.996; 	% Discount factor firms
 delta 	= 0.025;	% Depreciation rate
 alpha 	= 0.30;		% Capital share
-gy 		= 0.2;   	% Public spending in GDP
+gy 		= 0.466;   	% Public spending in GDP, based on UK National Accounts for 2022
 sigmaC 	= 1;		% Consumption risk aversion
 % sigmaL 	= 2; 		% Elasticity of labor
 epsilon = 7;		% Elasticity between goods
@@ -205,6 +205,7 @@ end;
 % disp("About to check residuals")
 resid;
 % disp("Je viens de check residuals")
+steady;
 
 varobs gy_obs pi_obs r_obs gc_obs gi_obs u_obs;
 
@@ -230,6 +231,7 @@ estimated_params;
 	phi_pi,				1.8,    	,		,		gamma_pdf,			1.5,				0.25;
 	phi_y,				0.05,    	,		,		gamma_pdf,			0.12,				0.05;
 %	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
+    chi,                1,          0,      0,      gamma_pdf,		  	10,              1;	
 
 end;
 
