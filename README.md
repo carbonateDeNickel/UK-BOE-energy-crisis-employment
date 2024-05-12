@@ -2,6 +2,9 @@
 Applied Macroeconometric Modelling -- Effects of the monetary policy lead by the Bank of England on employment in the context of the inflationary crisis of 2022
 
 
+Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabriel Sklénard (Gabriel Sklénard)
+
+
 ## Data to use
 
 - about labor -- we focus on Great Britain, which allows us to evade the potential issues of Northern Ireland facing a slightly different situation due to its border with the Republic of Ireland and the fact of not being part of the same island
