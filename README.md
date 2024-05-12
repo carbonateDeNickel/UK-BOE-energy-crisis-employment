@@ -36,15 +36,16 @@ Data to use:
 ## Calibrations à rechercher pour UK
 - labor
     - delta_N : separation rate
-        --> 3.6% (trimestriel) d'après kent2008job (cf biblio.bib)
+        - 3.6% (trimestriel) d'après kent2008job (cf biblio.bib)
     - eta : negotiation share --> à oublier : on postule 0.5
+        - 0.104 d'après jager2020wages (cf biblio.bib)
     - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe
 
 - gov
     - gy
-    --> GDP 2022 : £m 2,505,981 -- source : UK Economic Accounts time series, Yearly National Accounts, Gross Domestic Product at market prices: Current price: Seasonally adjusted £m, https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ybha/ukea
-    --> General Government Spending 2022 : £m 1,167,596 -- source : National Accounts, General government annual expenditure: ESA Table 11 ; https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicspending/datasets/esatable11annualexpenditureofgeneralgovernment
-    --> Je calcule donc : gy = 1,167,596 / 2,505,981 = 46.6%
+        - GDP 2022 : £m 2,505,981 -- source : UK Economic Accounts time series, Yearly National Accounts, Gross Domestic Product at market prices: Current price: Seasonally adjusted £m, https://www.ons.gov.uk/economy/grossdomesticproductgdp/timeseries/ybha/ukea
+        - General Government Spending 2022 : £m 1,167,596 -- source : National Accounts, General government annual expenditure: ESA Table 11 ; https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/publicspending/datasets/esatable11annualexpenditureofgeneralgovernment
+        - Je calcule donc : gy = 1,167,596 / 2,505,981 = 46.6%
     
 
 - Monetary policy
