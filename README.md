@@ -48,6 +48,7 @@ Data to use:
         - %% apparemment, Dynare ne part pas des paramètres usuels de cette loi, mais plutôt du couple moyenne / écart-type : on met 0.2, 0.2
         - problème : cela donnait une densité non-bornée en 0 ; on prend 0.35 et 0.2, le mode de la distribution se situe à environ 0.2
     - phi : shape hiring cost function --> à oublier : c'est un paramètre complexe propre à cette forme fonctionnelle
+    - u0 : taux de chômage structurel UK, pour remplacer la valeur 0.075 présente dans steady_state
 
 - gov
     - gy
