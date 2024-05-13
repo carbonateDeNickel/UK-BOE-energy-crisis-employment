@@ -92,6 +92,10 @@ Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabrie
         - d'où 87.52 * 0.87 = 76.14 £ / tonne CO2e
 
 
-## Revoir certaines équations du modèle
+## To do
 - supprimer les normalisations par le steady state dans les équations définissant les variables observées
 --> en fait ces normalisations pourraient être justifiées par le fait qu'on normalise la moyenne des séries à 0 dans l'estimation
+
+- refaire les calibrations UK en prenant les moyennes sur 1995-Q2 - 2023-Q2
+
+- calibration monetary policy
