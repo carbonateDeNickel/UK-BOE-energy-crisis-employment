@@ -19,7 +19,7 @@ gc_obs  = diff(log(output_table(:,3)./(def)));
 gi_obs  = diff(log(output_table(:,4)./(def)));
 
 % unemployment rate
-u_obs = output_table(2:end,6);
+u_obs = output_table(2:end,6)/100;
 
 % inflation rate
 pi_obs  = diff(log(def));
@@ -31,8 +31,8 @@ r_obs	= output_table(2:end,7)/400;
 
 T = T(2:end);
 
-% save into myobs.mat
-save myobs gy_obs gc_obs gi_obs u_obs T pi_obs r_obs;
+% save into myobsGBR.mat
+save myobsGBR gy_obs gc_obs gi_obs u_obs T pi_obs r_obs;
 
 %% Traces
 
