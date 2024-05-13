@@ -245,7 +245,7 @@ estimated_params;
 	phi_y,				0.1,    	,		,		gamma_pdf,			0.12,				0.05;
 %	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
 	chi,                10,         ,       ,      gamma_pdf,		  	10,              1;
-%	eta,				0.104,		,		,		beta_pdf,			0.35,			0.2;
+	eta,				0.104,		,		,		beta_pdf,			0.35,			0.2;
 	A,					2,			,		,		gamma_pdf,			2,				0.5;
 	Gam,				0.1,		,		,		gamma_pdf,			0.1,			0.05;
 %	beta,				0.996,		,		,		beta_pdf,			0.996,			0.002;
