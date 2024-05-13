@@ -225,7 +225,7 @@ estimated_params;
 %	stderr eta_p,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
 %	rho_p,				.92,    	,		,		beta_pdf,			.5,				0.2;
 	stderr eta_r,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-%	rho_r,				.5,    		,		,		beta_pdf,			.5,				0.2;
+	rho_r,				.5,    		,		,		beta_pdf,			.5,				0.2;
 	stderr eta_c,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
 %	rho_c,				.96,    		,		,		beta_pdf,			.5,				0.2;
 	stderr eta_i,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
@@ -235,7 +235,7 @@ estimated_params;
 	stderr eta_m,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
 %	rho_m,				.9,    		,		,		beta_pdf,			.5,				0.2;
 	stderr eta_t,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-%	rho_t,				.5,    		,		,		beta_pdf,			.5,				0.2;
+	rho_t,				.5,    		,		,		beta_pdf,			.5,				0.2;
 	
 %	sigmaC,				1,    		,		,		gamma_pdf,			1.5,				.35;
 %	kappa,				4,    		,		,		gamma_pdf,			4,				1.5;
