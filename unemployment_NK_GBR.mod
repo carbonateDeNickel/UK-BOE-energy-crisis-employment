@@ -24,38 +24,39 @@ var e_a e_g e_c e_m e_i e_r e_t;
 
 varexo eta_a eta_g eta_c eta_m eta_i eta_r eta_t;
  
-parameters beta delta alpha sigmaC delta_N chi phi gy b  Gam eta gamma epsilon kappa rho phi_y phi_pi
-			tau0 y0 sig theta1 theta2 varphi A xi piss u0 rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
+parameters beta delta alpha sigmaC sigmaL delta_N chi phi gy b  Gam eta gamma epsilon kappa rho phi_y phi_pi
+			tau0 y0 sig theta1 theta2 varphi A xi piss  rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
             
             
 %----------------------------------------------------------------
 % 2. Calibration
 %----------------------------------------------------------------
-delta_N = 0.036;	% separation rate, based on Kent (2008) for the UK
-eta		= .104;		% negotiation share, based on Jäger (2020) (worker-level calibration consensus)
+delta_N = .1;		% separation rate
+eta		= .5;		% negotiation share
 phi		= 0.05;		% shape hiring cost function
-beta 	= 0.996; 	% Discount factor firms (quarterly, based on estim_NK)
-delta 	= 0.025;	% Depreciation rate (quarterly, based on estim_NK)
+beta 	= 0.993; 	% Discount factor firms
+delta 	= 0.025;	% Depreciation rate
 alpha 	= 0.30;		% Capital share
-gy 		= 0.466;   	% Public spending in GDP, based on UK National Accounts for 2022
+gy 		= 0.2;   	% Public spending in GDP
 sigmaC 	= 1;		% Consumption risk aversion
+sigmaL 	= 2; 		% Elasticity of labor
 epsilon = 10;		% Elasticity between goods
 rho 	= .8;		% Monetary policy smoothing
 phi_y	= 0.1;		% Monetary policy reaction to output
 phi_pi	= 1.5;		% Monetary policy reaction to inflation
 xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
-gamma	= .33;		% unemployment insurance as % of real wage, calibrated with OECD series, UK 2023, at the level of average wage, single person without children
+gamma	= .85;		% unemployment insurance as % of real wage
 varphi	= 0.2;		% elasticity of emission to GDP
 piss	= 1.005;	% steady state inflation
 
 % value of main variables:
-tau0 	= 76.14/1000;	% value of carbon tax ($/ton)
-sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value added https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/greenhousegasintensityprovisionalestimatesuk/provisionalestimates2022
-y0	 	= 2.50617;	% 2022 nominal, trillion current local currency (LCU = £) https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
+tau0 	= 50 /1000;	% value of carbon tax ($/ton)
+sig		= 0.2; 		% Carbon intensity USA 0.2 Gt / Trillions USD
+y0	 	= 25;		% trillions usd PPA https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
-u0		= 0.058567;	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
+Hss		= 1/3;		% labor supply in ss
 
 % autoregressive roots parameters
 rho_a	= 0.95;
@@ -64,7 +65,7 @@ rho_c	= 0.95;
 rho_m  	= 0.95;
 rho_i	= 0.95;
 rho_r	= 0.40;
-rho_t	= 0.40;
+rho_t	= 0.8;
 
 %----------------------------------------------------------------
 % 3. Model
@@ -144,9 +145,9 @@ model;
 	lnc = log(c/steady_state(c));
 	[name='Investment gap']
 	lni = log(i/steady_state(i));
-	[name='Inflation gap']
+	[name='Investment gap']
 	lnpi = log(pi/steady_state(pi));
-	[name='Interest rate gap']
+	[name='Investment gap']
 	lnr = log(r/steady_state(r));
 
 
@@ -174,7 +175,7 @@ steady_state_model;
 	mc		= (epsilon-1)/epsilon;
 	varrho 	= mc - theta1*mu^theta2 - tau*(1-varphi)*sig*(1-mu)*y^(-varphi);
 	q		= 1;
-	u 		= u0;
+	u 		= .075;
 	n 		= 1-u;
 %	k		= n*(A*(rr-(1-delta))/(alpha*varrho))^(1/(alpha-1));
 	k		=	alpha*varrho*y/(rr-(1-delta));
@@ -245,7 +246,7 @@ estimated_params;
 	
 
 	sigmaC,				1,    		,		,		gamma_pdf,			1.5,				.35;
-%	sigmaL,				2,   	 	,		,		gamma_pdf,			2,				0.5;
+	sigmaL,				2,   	 	,		,		gamma_pdf,			2,				0.5;
 %	hh,					.34,    		,		,		beta_pdf,			.75,			0.1;
 %	kappa,				6,    		,		,		gamma_pdf,			4,				1.5;
 %	xi,					106,    	0,		,		gamma_pdf,			100,				15;
