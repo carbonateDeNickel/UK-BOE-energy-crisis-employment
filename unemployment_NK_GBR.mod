@@ -51,7 +51,7 @@ varphi	= 0.2;		% elasticity of emission to GDP
 piss	= 1.005;	% steady state inflation : 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
 
 % value of main variables:
-tau0 	= 50 /1000;	% value of carbon tax ($/ton)
+tau0 	= 76.14/1000;	% value of carbon tax ($/ton)
 sig		= 0.2; 		% Carbon intensity USA 0.2 Gt / Trillions USD
 y0	 	= 25;		% trillions usd PPA https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
 theta1  = 0.05;		% level of abatement costs
