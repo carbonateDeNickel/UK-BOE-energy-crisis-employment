@@ -25,7 +25,7 @@ var e_a e_g e_c e_m e_i e_r e_t;
 varexo eta_a eta_g eta_c eta_m eta_i eta_r eta_t;
  
 parameters beta delta alpha sigmaC delta_N chi phi gy b  Gam eta gamma epsilon kappa rho phi_y phi_pi
-			tau0 y0 sig theta1 theta2 varphi A xi piss  rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
+			tau0 y0 sig theta1 theta2 varphi A xi piss u0 rho_a rho_g rho_c rho_m rho_i rho_r rho_t;
             
             
 %----------------------------------------------------------------
@@ -55,7 +55,7 @@ sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value
 y0	 	= 2.50617;	% 2022 nominal, trillion current local currency (LCU = £) https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
-u0		= 0.058567	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
+u0		= 0.058567;	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
 
 % autoregressive roots parameters
 rho_a	= 0.95;
