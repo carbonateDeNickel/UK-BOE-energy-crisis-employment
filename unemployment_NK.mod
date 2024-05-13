@@ -17,8 +17,7 @@ gc_obs ${\Delta log(C_{t})}$ (long_name='Consumption growth'),
 gi_obs ${\Delta log(I_{t})}$ (long_name='Investment growth'), 
 pi_obs ${\pi_{t}}$ (long_name='Inflation'),
 r_obs ${R_{t}}$ (long_name='Interest rate'),
-u_obs ${U_{t}}$ (long_name='Unemployment rate')
-;
+u_obs ${u_{t}}$ (long_name='Unemployment rate'), lny, lnc, lni, lnpi, lnr;
 
 var e_a e_g e_c e_m e_i e_r e_t;
 
@@ -142,6 +141,18 @@ model;
 	[name='measurement unemployment']
 	u_obs  = u  - steady_state(u);
 	
+	[name='Output gap']
+	lny = log(y/steady_state(y));
+	[name='Consumption gap']
+	lnc = log(c/steady_state(c));
+	[name='Investment gap']
+	lni = log(i/steady_state(i));
+	[name='Investment gap']
+	lnpi = log(pi/steady_state(pi));
+	[name='Investment gap']
+	lnr = log(r/steady_state(r));
+
+	
 	[name='productivity shock']
 	log(e_a) = rho_a*log(e_a(-1))+eta_a;
     [name='government spending shock']
@@ -198,6 +209,7 @@ steady_state_model;
 	e_r 	= 1;
 	e_t 	= 1;
 	gy_obs = 0; gc_obs = 0; gi_obs = 0; pi_obs = 0; r_obs = 0; u_obs = 0; 
+    lny = 0; lnc = 0; lni = 0; lnpi = 0; lnr = 0;
 end;
 
 % check residuals
@@ -228,9 +240,9 @@ estimated_params;
 %	sigmaC,				1,    		,		,		gamma_pdf,			1.5,				.35;
 %	kappa,				4,    		,		,		gamma_pdf,			4,				1.5;
 %	xi,					80,     	,		,		gamma_pdf,			100,				15;
-%	rho,				.45,    	,		,		beta_pdf,			.75,				0.1;
-%	phi_pi,				1.8,    	,		,		gamma_pdf,			1.5,				0.25;
-%	phi_y,				0.05,    	,		,		gamma_pdf,			0.12,				0.05;
+	rho,				.45,    	,		,		beta_pdf,			.75,				0.1;
+	phi_pi,				1.5,    	,		,		gamma_pdf,			1.5,				0.25;
+	phi_y,				0.1,    	,		,		gamma_pdf,			0.12,				0.05;
 %	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
 %	chi,                10,         ,       ,      gamma_pdf,		  	10,              1;
 %	eta,				0.104,		,		,		beta_pdf,			0.35,			0.2;
