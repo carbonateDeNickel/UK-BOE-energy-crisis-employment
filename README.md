@@ -91,5 +91,6 @@ Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabrie
 --> en fait ces normalisations pourraient être justifiées par le fait qu'on normalise la moyenne des séries à 0 dans l'estimation
 
 - refaire les calibrations UK en prenant les moyennes sur 1995-Q2 - 2023-Q2
+    - gy à recalibrer / justifier par ce biais ; la valeur 2022 donne le "Hessian problem"
 
 - calibration monetary policy
