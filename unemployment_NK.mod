@@ -48,7 +48,7 @@ xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
 gamma	= .85;		% unemployment insurance as % of real wage
 varphi	= 0.2;		% elasticity of emission to GDP
-piss	= 0.005;	% 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
+piss	= 1.005;	% 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
 
 % value of main variables:
 tau0 	= 76.14/1000;	% value of carbon tax ($/ton)
@@ -56,12 +56,7 @@ sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value
 y0	 	= 2.50617;	% 2022 nominal, trillion current local currency (LCU = £) https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
-<<<<<<< HEAD
 u0		= 0.058567;	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
-=======
-Hss		= 1/3;		% labor supply in ss
-u0		= 0.058567	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
->>>>>>> parent of 7ea9bc1 (Calibration gamma (taux de remplacement UI) + mise en forme)
 
 % autoregressive roots parameters
 rho_a	= 0.95;
