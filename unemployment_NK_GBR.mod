@@ -52,7 +52,7 @@ piss	= 1.005;	% steady state inflation : 0.5% inflation quarterly basis in stead
 
 % value of main variables:
 tau0 	= 76.14/1000;	% value of carbon tax ($/ton)
-sig		= 0.2; 		% Carbon intensity USA 0.2 Gt / Trillions USD
+sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value added https://www.ons.gov.uk/economy/environmentalaccounts/bulletins/greenhousegasintensityprovisionalestimatesuk/provisionalestimates2022
 y0	 	= 25;		% trillions usd PPA https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
