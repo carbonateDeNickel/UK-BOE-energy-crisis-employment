@@ -34,19 +34,18 @@ parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kapp
 delta_N = 0.036;	% separation rate, based on Kent (2008) for the UK
 eta		= .104;		% negotiation share, based on Jäger (2020) (worker-level calibration consensus)
 phi		= 0.05;		% shape hiring cost function
-beta 	= 0.996; 	% Discount factor firms
-delta 	= 0.025;	% Depreciation rate
+beta 	= 0.996; 	% Discount factor firms (quarterly, based on estim_NK)
+delta 	= 0.025;	% Depreciation rate (quarterly, based on estim_NK)
 alpha 	= 0.30;		% Capital share
 gy 		= 0.466;   	% Public spending in GDP, based on UK National Accounts for 2022
 sigmaC 	= 1;		% Consumption risk aversion
-% sigmaL 	= 2; 		% Elasticity of labor
 epsilon = 7;		% Elasticity between goods
 rho 	= .8;		% Monetary policy smoothing
-phi_y	= 0.025;		% Monetary policy reaction to output
+phi_y	= 0.025;	% Monetary policy reaction to output
 phi_pi	= 1.5;		% Monetary policy reaction to inflation
 xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
-gamma	= .85;		% unemployment insurance as % of real wage
+gamma	= .33;		% unemployment insurance as % of real wage, calibrated with OECD series, UK 2023, at the level of average wage, single person without children
 varphi	= 0.2;		% elasticity of emission to GDP
 piss	= 0.005;	% 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
 
@@ -56,7 +55,6 @@ sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value
 y0	 	= 2.50617;	% 2022 nominal, trillion current local currency (LCU = £) https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
-Hss		= 1/3;		% labor supply in ss
 u0		= 0.058567	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
 
 % autoregressive roots parameters

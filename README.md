@@ -54,6 +54,12 @@ Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabrie
     - u0 : taux de chômage structurel UK, pour remplacer la valeur 0.075 présente dans steady_state
         - la valeur moyenne de notre série u_obs est 5.8567 %
         - prendre la valeur moyenne de la série est intrinsèquement cohérent avec l'équation liant u et u_obs dans le modèle, sachant que l'estimation considère u_obs diminué de sa moyenne : u_obs = u - steady_state(u)
+    - gamma : taux de remplacement de l'assurance chômage UK
+        - 33 % au niveau du salaire moyen, célibataire sans enfant, 2023
+        - 47 % au niveau 67% * salaire moyen, célibataire sans enfant, 2023
+        - 58 % au niveau salaire minimum, célibataire sans enfant, 2023
+        - source commune : OCDE, Net replacement rate in unemployment, https://stats.oecd.org/Index.aspx?DataSetCode=NRR
+        - on prend le niveau salaire moyen, soit 33%, a priori plus représentatif de la population
 
 - gov
     - gy
