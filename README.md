@@ -5,38 +5,8 @@ Applied Macroeconometric Modelling -- Effects of the monetary policy lead by the
 Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabriel Sklénard (Gabriel Sklénard)
 
 
-## Data to use
 
-- about labor -- we focus on Great Britain, which allows us to evade the potential issues of Northern Ireland facing a slightly different situation due to its border with the Republic of Ireland and the fact of not being part of the same island
-    - ONS/LMS/LF43.M : LFS: Employment rate: Great Britain: Aged 16-64: All: %: SA – Monthly
-    - ONS/LMS/LF4G.M : LFS: Employment rate: Great Britain: Aged 16-64: Female: %: SA – Monthly
-    - ONS/LMS/YCLO.M : LFS: Employment rate: Great Britain: Aged 16-64: Male: %: SA – Monthly
-
-- about monetary policy -- the following time series only cover end of 2008 to present days. There are empty lines, which can be interpreted as prolonging the previous rate
-    - BOE/42705/YWMB82C : Monthly rate of Central Bank sterling operational lending facility for monetary policy not seasonally adjusted (in percent) : 11-2008 to 08-2022
-    - BOE/42705/YWMB83C : Monthly rate of Central Bank sterling operational deposit facility for monetary policy not seasonally adjusted (in percent) : 10-2008 to 08-2022
-
-- about GDP
-    - OECD/QNA/GBR.B1_GS1.LNBQRSA.Q : United Kingdom – Gross domestic product – National currency, chained volume estimates, national reference year, quarterly levels, seasonally adjusted – Quarterly
-
-- about consumption
-    - OECD/QNA/GBR.P3S1.CQRSA.Q : United Kingdom – Final consumption expenditure (P3S1) – National currency, current prices, quarterly levels, seasonally adjusted – Quarterly
-
-- about investment
-    - OECD/QNA/GBR.P51.CQRSA.Q : United Kingdom – Gross fixed capital formation – National currency, current prices, quarterly levels, seasonally adjusted – Quarterly
-
-- about inflation
-    - energy
-        - ONS/MM23/CSL7.M : CPIH 1Mth: Energy (G) 2015=100 – Monthly -- this seems to be actually inflation, not CPI
-        - ONS/MM23/DK9T.M : CPI INDEX: Energy (G) 2015=100 – Monthly
-    - non-energy
-        - ONS/MM23/DKC5.M : CPI INDEX: Excluding energy (SP) 2015=100 – Monthly
-
-
-
-
-
-## Calibrations à rechercher pour UK, et notes sur certains choix de calibration et/ou de priors
+## Calibrations pour UK, et notes sur certains choix de calibration et/ou de priors
 - utilité
     - chi ($\chi$ désutilité du travail) : conformément aux recommandations de la slide 28 du cours 4, pour un paramètre de fonction d'utilité positif, on adopte une distribution gamma. Quant à la valeur moyenne $\mu$, on constate dans l'estimation du steady state que $C = 14.5$ ; donc pour que le travail puisse avoir un effet du même ordre de grandeur, on prendra $\mu = 10$
 
@@ -86,11 +56,30 @@ Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabrie
         - d'où 87.52 * 0.87 = 76.14 £ / tonne CO2e
 
 
-## To do
-- supprimer les normalisations par le steady state dans les équations définissant les variables observées
---> en fait ces normalisations pourraient être justifiées par le fait qu'on normalise la moyenne des séries à 0 dans l'estimation
 
-- refaire les calibrations UK en prenant les moyennes sur 1995-Q2 - 2023-Q2
-    - gy à recalibrer / justifier par ce biais ; la valeur 2022 donne le "Hessian problem"
+## Alternative data to use
 
-- calibration monetary policy
+- about labor -- we focus on Great Britain, which allows us to evade the potential issues of Northern Ireland facing a slightly different situation due to its border with the Republic of Ireland and the fact of not being part of the same island
+    - ONS/LMS/LF43.M : LFS: Employment rate: Great Britain: Aged 16-64: All: %: SA – Monthly
+    - ONS/LMS/LF4G.M : LFS: Employment rate: Great Britain: Aged 16-64: Female: %: SA – Monthly
+    - ONS/LMS/YCLO.M : LFS: Employment rate: Great Britain: Aged 16-64: Male: %: SA – Monthly
+
+- about monetary policy -- the following time series only cover end of 2008 to present days. There are empty lines, which can be interpreted as prolonging the previous rate
+    - BOE/42705/YWMB82C : Monthly rate of Central Bank sterling operational lending facility for monetary policy not seasonally adjusted (in percent) : 11-2008 to 08-2022
+    - BOE/42705/YWMB83C : Monthly rate of Central Bank sterling operational deposit facility for monetary policy not seasonally adjusted (in percent) : 10-2008 to 08-2022
+
+- about GDP
+    - OECD/QNA/GBR.B1_GS1.LNBQRSA.Q : United Kingdom – Gross domestic product – National currency, chained volume estimates, national reference year, quarterly levels, seasonally adjusted – Quarterly
+
+- about consumption
+    - OECD/QNA/GBR.P3S1.CQRSA.Q : United Kingdom – Final consumption expenditure (P3S1) – National currency, current prices, quarterly levels, seasonally adjusted – Quarterly
+
+- about investment
+    - OECD/QNA/GBR.P51.CQRSA.Q : United Kingdom – Gross fixed capital formation – National currency, current prices, quarterly levels, seasonally adjusted – Quarterly
+
+- about inflation
+    - energy
+        - ONS/MM23/CSL7.M : CPIH 1Mth: Energy (G) 2015=100 – Monthly -- this seems to be actually inflation, not CPI
+        - ONS/MM23/DK9T.M : CPI INDEX: Energy (G) 2015=100 – Monthly
+    - non-energy
+        - ONS/MM23/DKC5.M : CPI INDEX: Excluding energy (SP) 2015=100 – Monthly
