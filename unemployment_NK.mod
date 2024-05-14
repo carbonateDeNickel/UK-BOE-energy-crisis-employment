@@ -33,15 +33,15 @@ parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kapp
 delta_N = 0.036;	% separation rate, based on Kent (2008) for the UK
 eta		= .104;		% negotiation share, based on Jäger (2020) (worker-level calibration consensus)
 phi		= 0.05;		% shape hiring cost function
-beta 	= 0.996; 	% Discount factor firms
+beta 	= 0.993; 	% Discount factor firms
 delta 	= 0.025;	% Depreciation rate
 alpha 	= 0.30;		% Capital share
 gy 		= 0.466;   	% Public spending in GDP, based on UK National Accounts for 2022
 sigmaC 	= 1;		% Consumption risk aversion
 % sigmaL 	= 2; 		% Elasticity of labor
-epsilon = 7;		% Elasticity between goods
+epsilon = 10;		% Elasticity between goods
 rho 	= .8;		% Monetary policy smoothing
-phi_y	= 0.025;		% Monetary policy reaction to output
+phi_y	= 0.1;		% Monetary policy reaction to output
 phi_pi	= 1.5;		% Monetary policy reaction to inflation
 xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
@@ -64,7 +64,7 @@ rho_c	= 0.95;
 rho_m  	= 0.95;
 rho_i	= 0.95;
 rho_r	= 0.40;
-rho_t	= 0.40;
+rho_t	= 0.8;
 
 %----------------------------------------------------------------
 % 3. Model
