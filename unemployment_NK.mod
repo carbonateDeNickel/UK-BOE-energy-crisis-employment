@@ -31,7 +31,7 @@ parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kapp
 % 2. Calibration
 %----------------------------------------------------------------
 delta_N = 0.036;	% separation rate, based on Kent (2008) for the UK
-eta		= .5;		% negotiation share, based on Jäger (2020) (worker-level calibration consensus)
+eta		= .5;		% negotiation share
 phi		= 0.05;		% shape hiring cost function
 beta 	= 0.993; 	% Discount factor firms
 delta 	= 0.025;	% Depreciation rate
