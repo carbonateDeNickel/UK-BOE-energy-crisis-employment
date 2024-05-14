@@ -28,9 +28,7 @@ Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabrie
     
 
 - Monetary policy
-    - rho --> à oublier éventuellement
-    - phi_y
-    - phi_pi
+    - on conserve les calibrations US en partant du principe que toutes les grandes banques centrales suivent des lignes directrices similaires, et en sachant qu'on va estimer les paramètres de toute façon, ce qui nous donnera une meilleure idée des valeurs compatibles avec ce modèle de l'économie britannique.
 
 - economy
     - piss
