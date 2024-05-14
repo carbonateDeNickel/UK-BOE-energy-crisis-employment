@@ -24,6 +24,9 @@ Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabrie
     - u0 : taux de chômage structurel UK, pour remplacer la valeur 0.075 présente dans steady_state
         - la valeur moyenne de notre série u_obs est 5.8567 %
         - prendre la valeur moyenne de la série est intrinsèquement cohérent avec l'équation liant u et u_obs dans le modèle, sachant que l'estimation considère u_obs diminué de sa moyenne : u_obs = u - steady_state(u)
+    - gamma : taux de remplacement de l'assurance chômage
+        - 38% environ au niveau du salaire moyen, entre 2001 et 2023
+        - https://stats.oecd.org/Index.aspx?DataSetCode=NRR
 
 - gov
     - gy

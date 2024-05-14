@@ -45,7 +45,7 @@ phi_y	= 0.1;		% Monetary policy reaction to output
 phi_pi	= 1.5;		% Monetary policy reaction to inflation
 xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
-gamma	= .85;		% unemployment insurance as % of real wage
+gamma	= .38;		% unemployment insurance as % of real wage
 varphi	= 0.2;		% elasticity of emission to GDP
 piss	= 1.005;	% 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
 
@@ -245,7 +245,7 @@ estimated_params;
 	phi_y,				0.1,    	,		,		gamma_pdf,			0.12,				0.05;
 %	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
 	chi,                10,         ,       ,      gamma_pdf,		  	10,              1;
-%	eta,				0.104,		,		,		beta_pdf,			0.35,			0.2;
+	eta,				0.104,		,		,		beta_pdf,			0.3,			0.19;
 	A,					2,			,		,		gamma_pdf,			2,				0.5;
 	Gam,				0.1,		,		,		gamma_pdf,			0.1,			0.05;
 %	beta,				0.996,		,		,		beta_pdf,			0.996,			0.002;
@@ -258,7 +258,7 @@ estimation(datafile=myobsGBR,	% your datafile, must be in your current folder
 first_obs=1,				% First data of the sample
 mode_compute=4,				% optimization algo, keep it to 4
 mh_replic=5000,				% number of sample in Metropolis-Hastings
-mh_jscale=0.52,				% adjust this to have an acceptance rate between 0.2 and 0.3
+mh_jscale=0.53,				% adjust this to have an acceptance rate between 0.2 and 0.3
 prefilter=1,				% remove the mean in the data
 lik_init=2,					% Don't touch this,
 mh_nblocks=1,				% number of mcmc chains
