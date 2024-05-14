@@ -45,7 +45,7 @@ phi_y	= 0.1;		% Monetary policy reaction to output
 phi_pi	= 1.5;		% Monetary policy reaction to inflation
 xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
-gamma	= .38;		% unemployment insurance as % of real wage
+gamma	= .558;		% unemployment insurance as % of real wage
 varphi	= 0.2;		% elasticity of emission to GDP
 piss	= 1.005;	% 0.5% inflation quarterly basis in steady state, corresponding to the 2% yearly target
 
