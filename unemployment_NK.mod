@@ -31,17 +31,17 @@ parameters beta delta alpha sigmaC delta_N chi phi gy Gam eta gamma epsilon kapp
 % 2. Calibration
 %----------------------------------------------------------------
 delta_N = 0.036;	% separation rate, based on Kent (2008) for the UK
-eta		= .5;		% negotiation share
+eta		= .104;		% negotiation share
 phi		= 0.05;		% shape hiring cost function
-beta 	= 0.993; 	% Discount factor firms
+beta 	= 0.996; 	% Discount factor firms
 delta 	= 0.025;	% Depreciation rate
 alpha 	= 0.30;		% Capital share
 gy 		= 0.466;   	% Public spending in GDP, based on UK National Accounts for 2022
 sigmaC 	= 1;		% Consumption risk aversion
 % sigmaL 	= 2; 		% Elasticity of labor
-epsilon = 10;		% Elasticity between goods
+epsilon = 7;		% Elasticity between goods
 rho 	= .8;		% Monetary policy smoothing
-phi_y	= 0.1;		% Monetary policy reaction to output
+phi_y	= 0.025;	% Monetary policy reaction to output
 phi_pi	= 1.5;		% Monetary policy reaction to inflation
 xi 		= 80;		% Adjustment costs on prices
 kappa	= 4;		% adjustment costs on investment
@@ -55,7 +55,7 @@ sig		= 0.190; 	% 2022 carbon intensity UK 190 tons CO2 / million pounds of value
 y0	 	= 2.50617;	% 2022 nominal, trillion current local currency (LCU = £) https://data.worldbank.org/indicator/NY.GDP.MKTP.CN
 theta1  = 0.05;		% level of abatement costs
 theta2  = 2.6;		% curvature abatement cost
-u0		= 0.068;	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
+u0		= 0.058567;	% mean UK unemployment rate in the series (1995 Q1-2023 Q2)
 
 % autoregressive roots parameters
 rho_a	= 0.95;
@@ -64,7 +64,7 @@ rho_c	= 0.95;
 rho_m  	= 0.95;
 rho_i	= 0.95;
 rho_r	= 0.40;
-rho_t	= 0.8;
+rho_t	= 0.4;
 
 %----------------------------------------------------------------
 % 3. Model
@@ -235,18 +235,18 @@ estimated_params;
 	stderr eta_m,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
 %	rho_m,				.9,    		,		,		beta_pdf,			.5,				0.2;
 	stderr eta_t,   	,			,		,		INV_GAMMA_PDF,		.01,			2;
-	rho_t,				.6,    		,		,		beta_pdf,			.6,				0.15;
+	rho_t,				.5,    		,		,		beta_pdf,			.5,				0.2;
 	
 %	sigmaC,				1,    		,		,		gamma_pdf,			1.5,				.35;
 %	kappa,				4,    		,		,		gamma_pdf,			4,				1.5;
 %	xi,					80,     	,		,		gamma_pdf,			100,				15;
 	rho,				.45,    	,		,		beta_pdf,			.75,				0.1;
 	phi_pi,				1.5,    	,		,		gamma_pdf,			1.5,				0.25;
-	phi_y,				0.1,    	,		,		gamma_pdf,			0.15,				0.1;
+	phi_y,				0.1,    	,		,		gamma_pdf,			0.12,				0.05;
 %	alpha,				0.25,    	,		,		beta_pdf,			0.3,				.05;
-	chi,                10,         ,       ,      gamma_pdf,		  	12,              1.5;
+	chi,                10,         ,       ,      gamma_pdf,		  	10,              1.2;
 %	eta,				0.104,		,		,		beta_pdf,			0.32,			0.17;
-	A,					2,			,		,		gamma_pdf,			2.5,			0.5;
+	A,					2,			,		,		gamma_pdf,			2.3,			0.5;
 	Gam,				0.1,		,		,		gamma_pdf,			0.2,			0.07;
 %	beta,				0.996,		,		,		beta_pdf,			0.996,			0.002;
 %	delta,				0.025,		,		,		beta_pdf,			0.025,			0.005;
