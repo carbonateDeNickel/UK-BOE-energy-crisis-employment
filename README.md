@@ -5,6 +5,11 @@ Applied Macroeconometric Modelling -- Effects of the monetary policy lead by the
 Authors : Côme Pollet (\[cpltensae\]), Nicolas Prat (carbonateDeNickel), Gabriel Sklénard (Gabriel Sklénard)
 
 
+## Usage of the code
+Please consider the MATLAB script all_at_once.m, which will allow you to run in one click the two phases:
+1- getting up-to-date data from DBnomics
+2- getting Dynare estimate and run the model
+
 
 ## Calibrations pour UK, et notes sur certains choix de calibration et/ou de priors
 - utilité
