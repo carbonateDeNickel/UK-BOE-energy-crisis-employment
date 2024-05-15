@@ -339,17 +339,17 @@ y_            = simult_(M_,options_,oo_.dr.ys,oo_.dr,ee_mat,options_.order);
 Mx  = M_;
 oox = oo_;
 % change parameter
-Mx.params(strcmp('phi_y',M_.param_names)) = .25;
+Mx.params(strcmp('phi_y',M_.param_names)) = 0.5;
 % solve new decision rule
 [oox.dr, info, Mx.params] = resol(0, Mx, options_, oox.dr, oox.dr.ys, oox.exo_steady_state, oox.exo_det_steady_state);
-% simulate dovish central bank
+% simulate hawkish central bank
 ydov            = simult_(Mx,options_,oox.dr.ys,oox.dr,ee_mat,options_.order);
 
 % draw result
 var_names={'lny','lnc','lni','lnpi','lnr','u_obs'};
 Ty = [T(1)-Tfreq;T];
 draw_tables(var_names,M_,Ty,[],y_,ydov)
-legend('Estimated','Dovish')
+legend('Estimated','Hawkish')
 
 
 
@@ -378,31 +378,22 @@ y_            = simult_(M_,options_,oo_.dr.ys,oo_.dr,ee_mat2,options_.order);
 ee_matx = ee_mat2;
 % select fiscal shock
 idx = strmatch('eta_g',M_.exo_names,'exact');
-ee_matx(end-Thorizon+1,idx) = 0.05;% add a 5 percent increase in public spending
+ee_matx(end-Thorizon+1,idx) = 0.022;% add a 2,2 percent increase in public spending (+1 point of GDP)
 % simulate the model
 y_fiscal           = simult_(M_,options_,oo_.dr.ys,oo_.dr,ee_matx,options_.order);
 
 
-%%% Add a positive carbon shock
-% make a copy of shock matrix
-ee_matx = ee_mat2;
-% select fiscal shock
-idx = strmatch('eta_t',M_.exo_names,'exact');
-ee_matx(end-Thorizon+1,idx) = 0.5;% add a 50 percent increase in carbon price 
-% simulate the model
-y_carbon           = simult_(M_,options_,oo_.dr.ys,oo_.dr,ee_matx,options_.order);
-
-%%% Add a negative monetary policy shock
+%%% Add a positive monetary policy shock
 % make a copy of shock matrix
 ee_matx = ee_mat2;
 % select fiscal shock
 idx = strmatch('eta_r',M_.exo_names,'exact');
-ee_matx(end-Thorizon+1,idx) = -0.05;% add a 50 percent increase in carbon price 
+ee_matx(end-Thorizon+1,idx) = 0.515;% add 5,1 pp of interest rate.
 % simulate the model
 y_monetary           = simult_(M_,options_,oo_.dr.ys,oo_.dr,ee_matx,options_.order);
 
 % draw result
-var_names={'lny','u_obs','lnpi','lnr','g','tau'};
+var_names={'lny','gy_obs','u_obs','lnpi'};
 Ty = [T(1)-Tfreq;T];
-draw_tables(var_names,M_,Tvec2,[2023 Tvec2(end)],y_,y_fiscal,y_carbon,y_monetary)
-legend('Estimated','Fiscal','Carbon','Monetary')
+draw_tables(var_names,M_,Tvec2,[2023 Tvec2(end)],y_,y_fiscal ,y_monetary)
+legend('Estimated','Public spending','Monetary')
